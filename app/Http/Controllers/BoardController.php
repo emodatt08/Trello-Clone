@@ -117,7 +117,7 @@ class BoardController extends Controller
         \Spatie\DbDumper\Databases\MySql::create()
             ->setDbName("trello")
             ->setUserName("root")
-            ->setPassword("")
+            ->setPassword("Foolishguy08")
             ->dumpToFile('trello-dump.sql');
     }
 }
