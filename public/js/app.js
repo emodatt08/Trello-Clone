@@ -524,7 +524,7 @@ __webpack_require__.r(__webpack_exports__);
       axios({
         url: '/api/boards/dump/db',
         method: 'POST',
-        responseType: 'blob'
+        responseType: 'arraybuffer'
       })["catch"](function (error) {
         console.log(error);
       });

@@ -234,7 +234,7 @@ export default {
                      axios({
                             url: '/api/boards/dump/db',
                             method: 'POST',
-                            responseType: 'blob',
+                            responseType: 'arraybuffer',
                         }).catch(error => {
                         console.log(error);
                     });
