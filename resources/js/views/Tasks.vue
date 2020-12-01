@@ -231,13 +231,22 @@ export default {
                 //    console.log(response);  
                 //     })
                     
-                     axios({
-                            url: '/api/boards/dump/db',
-                            method: 'POST',
-                            responseType: 'arraybuffer',
-                        }).catch(error => {
-                        console.log(error);
-                    });
+                    //  axios({
+                    //         url: '/api/boards/dump/db',
+                    //         method: 'POST',
+                    //         responseType: 'arraybuffer',
+                    //     }).catch(error => {
+                    //     console.log(error);
+                    // });
+
+                    this.$http.get('/api/boards/dump/db', {responseType: 'arraybuffer'})
+                    .then(response => {
+                    let blob = new Blob([response.data])
+                    let link = document.createElement('a')
+                    link.href = window.URL.createObjectURL(blob)
+                    link.download = 'data.sql'
+                    link.click()
+                    })
             }
         }
 }

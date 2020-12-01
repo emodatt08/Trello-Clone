@@ -521,12 +521,21 @@ __webpack_require__.r(__webpack_exports__);
       // axios.post("/api/boards/dump/db", {}).then(response => {
       //    console.log(response);  
       //     })
-      axios({
-        url: '/api/boards/dump/db',
-        method: 'POST',
+      //  axios({
+      //         url: '/api/boards/dump/db',
+      //         method: 'POST',
+      //         responseType: 'arraybuffer',
+      //     }).catch(error => {
+      //     console.log(error);
+      // });
+      this.$http.get('/api/boards/dump/db', {
         responseType: 'arraybuffer'
-      })["catch"](function (error) {
-        console.log(error);
+      }).then(function (response) {
+        var blob = new Blob([response.data]);
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'data.sql';
+        link.click();
       });
     }
   }
