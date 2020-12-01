@@ -116,11 +116,11 @@ class BoardController extends Controller
     public function dump(Request $request)
     {
         $date = date("Y-m-d");
-        $host = env('DB_HOST');
+        $user = env('DB_USERNAME');
         $password= env('DB_PASSWORD');
         $dbname=env('DB_DATABASE');
         $path = storage_path().'/db/'.$date.".sql";
-        $dump = shell_exec("mysqldump --routines -u $host -p$password $dbname > ". $path);    
+        $dump = shell_exec("mysqldump --routines -u $user -p$password $dbname > ". $path);    
         if(file_exists($path)) {
          return Response::download($path);
     }else{
