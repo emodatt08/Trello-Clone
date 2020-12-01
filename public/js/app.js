@@ -523,7 +523,7 @@ __webpack_require__.r(__webpack_exports__);
       //     })
       axios({
         url: '/api/boards/dump/db',
-        method: 'GET',
+        method: 'POST',
         responseType: 'blob'
       })["catch"](function (error) {
         console.log(error);
