@@ -239,7 +239,7 @@ export default {
                     //     console.log(error);
                     // });
 
-                    this.$http.get('/api/boards/dump/db', {responseType: 'arraybuffer'})
+                    axios.post('/api/boards/dump/db', {responseType: 'arraybuffer'})
                     .then(response => {
                     let blob = new Blob([response.data])
                     let link = document.createElement('a')

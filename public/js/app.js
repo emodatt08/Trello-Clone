@@ -528,7 +528,7 @@ __webpack_require__.r(__webpack_exports__);
       //     }).catch(error => {
       //     console.log(error);
       // });
-      this.$http.get('/api/boards/dump/db', {
+      axios.post('/api/boards/dump/db', {
         responseType: 'arraybuffer'
       }).then(function (response) {
         var blob = new Blob([response.data]);
