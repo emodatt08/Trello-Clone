@@ -83,7 +83,7 @@ class TaskController extends Controller
      */
     public function show(Task $Task)
     {
-        $Tasks = Task::where('status', '1')->where('Task_id', $Task)->with('tasks')->get();
+        $Tasks = Task::where('status', '1')->where('task_id', $Task)->with('tasks')->first();
         if($Tasks){
             $response = response()->json(['responseCode' => '200', 'responseMessage' => 'success', 'data' => $Tasks]);
         }else{
@@ -159,12 +159,10 @@ class TaskController extends Controller
                     }
                 }else{
                     if($getColumn[$i]['task_id'] == $task->task_id){
-                        if($getColumn[$i]['column'] >= 1){
+                       
                             $valueOfAddition = $getColumn[$i]['column'] + 1;   
                             $addValueOfSubtraction = $this->addValueOfSubtractionToField($getColumn[$i]['column'],$valueOfAddition, $task->task_id, "down");
                             $updateColumnWithValue = $this->updateColumnField($task, $getColumn[$i]['task_id'],$valueOfAddition, "down");
-                        }
-                       
                 }
             }
 
