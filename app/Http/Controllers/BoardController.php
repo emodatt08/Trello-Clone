@@ -122,7 +122,7 @@ class BoardController extends Controller
         $path = storage_path().'/db/'.$date.".sql";
         $dump = shell_exec("mysqldump --routines -u $user -p$password $dbname > ". $path);    
         if(file_exists($path)) {
-         return Response::download($path);
+          return response()->download($path);
     }else{
         response()->json(['responseCode' => '404', 'responseMessage' => 'failure', 'data' => []]);
     }
