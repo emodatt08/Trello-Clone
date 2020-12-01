@@ -114,10 +114,16 @@ class BoardController extends Controller
      */
     public function dump(Request $request)
     {
-        \Spatie\DbDumper\Databases\MySql::create()
-            ->setDbName("trello")
-            ->setUserName("root")
-            ->setPassword("Foolishguy08")
-            ->dumpToFile('trello-dump.sql');
+        $date = date("Y-m-d");
+        $host = env('DB_HOST');
+        $password= env('DB_PASSWORD');
+        $dbname=env('DB_DATABASE');
+        $path = storage_path().'/db/'.$date.".sql";
+        $dump = shell_exec("mysqldump --routines -u $host -p$password $dbname > ". $path);    
+        if(file_exists($path)) {
+         return Response::download($path);
+    }else{
+        response()->json(['responseCode' => '404', 'responseMessage' => 'failure', 'data' => []]);
     }
+  }
 }
