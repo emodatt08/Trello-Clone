@@ -227,9 +227,15 @@ export default {
                     });
             },
             dumpDb(){
-                axios.post("/api/boards/dump/db", {}).then(response => {
-                   console.log(response);  
-                    }).catch(error => {
+                // axios.post("/api/boards/dump/db", {}).then(response => {
+                //    console.log(response);  
+                //     })
+                    
+                     axios({
+                            url: '/api/boards/dump/db',
+                            method: 'GET',
+                            responseType: 'blob',
+                        }).catch(error => {
                         console.log(error);
                     });
             }
