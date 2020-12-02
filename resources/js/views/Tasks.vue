@@ -227,18 +227,6 @@ export default {
                     });
             },
             dumpDb(){
-                // axios.post("/api/boards/dump/db", {}).then(response => {
-                //    console.log(response);  
-                //     })
-                    
-                    //  axios({
-                    //         url: '/api/boards/dump/db',
-                    //         method: 'POST',
-                    //         responseType: 'arraybuffer',
-                    //     }).catch(error => {
-                    //     console.log(error);
-                    // });
-
                     axios.post('/api/boards/dump/db', {responseType: 'arraybuffer'})
                     .then(response => {
                     let blob = new Blob([response.data])
