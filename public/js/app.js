@@ -142,8 +142,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return {
-        title: "",
-        description: ""
+        title: "new board",
+        description: "new description"
       };
     }
   },
@@ -353,7 +353,6 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/boards/").then(function (response) {
-      //console.log(response.data);
       _this.boards = response.data.data;
     })["catch"](function (error) {
       console.log(error);
@@ -1481,23 +1480,23 @@ var render = function() {
                   }
                 },
                 [_vm._v("Add a card")]
-              ),
-              _vm._v(" "),
-              _c("newboard", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.addingBoard != null,
-                    expression: "addingBoard != null"
-                  }
-                ],
-                attrs: { board: _vm.addingBoard },
-                on: { close: _vm.addNewBoard }
-              })
+              )
             ],
             2
           )
+        }),
+        _vm._v(" "),
+        _c("newboard", {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.addingBoard != null,
+              expression: "addingBoard != null"
+            }
+          ],
+          attrs: { board: _vm.addingBoard },
+          on: { close: _vm.addNewBoard }
         }),
         _vm._v(" "),
         _c(
@@ -1510,7 +1509,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Add a Board")]
+          [_vm._v("Adding a Board")]
         )
       ],
       2

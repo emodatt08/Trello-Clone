@@ -70,10 +70,10 @@
                 </ul>
 
                 <button class="add-card-btn btn"  @click="newTask(board.board_id)" >Add a card</button>
-                <newboard  @close="addNewBoard" :board="addingBoard"  v-show="addingBoard != null"></newboard>
+                
             </div>
-           
-            <button class="add-list-btn btn" @click="newBoard()">Add a Board</button>
+           <newboard  @close="addNewBoard" :board="addingBoard"  v-show="addingBoard != null"></newboard>
+            <button class="add-list-btn btn" @click="newBoard()">Adding a Board</button>
             
         </section>
         <!-- End of lists container -->
@@ -105,7 +105,7 @@ export default {
     },
     mounted(){
         axios.get("/api/boards/").then(response => {
-            //console.log(response.data);
+
            this.boards = response.data.data;
         }).catch(error => {
             console.log(error);

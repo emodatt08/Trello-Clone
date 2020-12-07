@@ -46,8 +46,8 @@
                         return this.board
                     }
                     return {
-                        title: "",
-                        description: ""
+                        title: "new board",
+                        description: "new description"
                     }
                 }
             },
