@@ -142,8 +142,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return {
-        title: "new board",
-        description: "new description"
+        title: "",
+        description: ""
       };
     }
   },
@@ -372,6 +372,8 @@ __webpack_require__.r(__webpack_exports__);
         status: null,
         column: null
       };
+      console.log(this.bdBoard);
+      console.log(this.addingTask);
     },
     newBoard: function newBoard() {
       this.addingBoard = {
@@ -1437,36 +1439,35 @@ var render = function() {
                             })
                           ])
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("modal", {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.editingItem != null,
-                          expression: "editingItem != null"
-                        }
-                      ],
-                      attrs: { task: _vm.editingItem },
-                      on: { close: _vm.endEditing }
-                    }),
-                    _vm._v(" "),
-                    _c("modal", {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.addingTask != null,
-                          expression: "addingTask != null"
-                        }
-                      ],
-                      attrs: { task: _vm.addingTask },
-                      on: { close: _vm.addTask }
-                    })
-                  ],
-                  1
+                      : _vm._e()
+                  ]
                 )
+              }),
+              _vm._v(" "),
+              _c("modal", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.editingItem != null,
+                    expression: "editingItem != null"
+                  }
+                ],
+                attrs: { task: _vm.editingItem },
+                on: { close: _vm.endEditing }
+              }),
+              _vm._v(" "),
+              _c("modal", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.addingTask != null,
+                    expression: "addingTask != null"
+                  }
+                ],
+                attrs: { task: _vm.addingTask },
+                on: { close: _vm.addTask }
               }),
               _vm._v(" "),
               _c(

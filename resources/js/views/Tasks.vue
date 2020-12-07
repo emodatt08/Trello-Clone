@@ -65,14 +65,14 @@
                 <h3 class="list-title" >{{board.title}}</h3>
                 <ul class="list-items" v-for="(task, index) in board.tasks" :key="index" @dblclick="editingItem = task">
                     <li  v-if="renderComponent" >{{task.title}}<span><img :src="image_src" @click="addColumn(task.task_id, 'up')" class="img-up"><img :src="image_src2" @click="addColumn(task.task_id, 'down')" class="img-down"></span></li>
+                     
+                </ul>
                      <modal @close="endEditing" :task="editingItem" v-show="editingItem != null"></modal>
                      <modal @close="addTask"  :task="addingTask" v-show="addingTask != null"></modal>
-                </ul>
-
                 <button class="add-card-btn btn"  @click="newTask(board.board_id)" >Add a card</button>
                 
             </div>
-           <newboard  @close="addNewBoard" :board="addingBoard"  v-show="addingBoard != null"></newboard>
+              <newboard  @close="addNewBoard" :board="addingBoard"  v-show="addingBoard != null"></newboard>
             <button class="add-list-btn btn" @click="newBoard()">Adding a Board</button>
             
         </section>
@@ -123,6 +123,8 @@ export default {
                     status: null,
                     column: null,
                 }
+                console.log(this.bdBoard);
+                console.log(this.addingTask);
             },
             newBoard(){
                 this.addingBoard = {
@@ -197,6 +199,7 @@ export default {
                 }); 
             },
              addNewBoard(board){
+                  
                 this.addingBoard = null;  
                 let  title =  board.title;
                  let description = board.description;
